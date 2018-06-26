@@ -173,7 +173,7 @@ func fmtProcesses(
 
 func formatCommand(fp *process.FilledProcess) *model.Command {
 	return &model.Command{
-		Args:   fp.Cmdline,
+		Args:   fp.Cmdline[:1], // PALANTIR FORK: Drop all but first element of Cmdline
 		Cwd:    fp.Cwd,
 		Root:   "",    // TODO
 		OnDisk: false, // TODO
